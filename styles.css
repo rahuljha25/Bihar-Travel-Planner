@@ -1,0 +1,1492 @@
+/* Global Styles */
+:root {
+    --primary-color: #2962ff;
+    --secondary-color: #1565c0;
+    --accent-color: #ffab40;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --border-radius: 8px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Navbar Customization */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Search Section */
+#search {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover {
+    background-color: #f8f9fa;
+}
+
+.search-result-image {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-right: 1rem;
+}
+
+.search-result-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.search-result-info {
+    flex: 1;
+}
+
+.search-result-info h6 {
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.search-result-info small {
+    color: #666;
+}
+
+.no-results {
+    padding: 1rem;
+    text-align: center;
+    color: #666;
+}
+
+mark {
+    background-color: rgba(255, 171, 64, 0.3);
+    padding: 0.1em 0.2em;
+    border-radius: 2px;
+}
+
+/* Highlight animation for search results */
+@keyframes highlightAnimation {
+    0% { background-color: rgba(41, 98, 255, 0.1); }
+    100% { background-color: transparent; }
+}
+
+.highlight {
+    animation: highlightAnimation 2s ease;
+}
+
+/* Enhanced Input Styling */
+#search .input-group {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+#search .input-group:focus-within {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#search .form-control {
+    border: 2px solid #e0e0e0;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+#search .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: none;
+}
+
+/* Interactive Hover Effects */
+.search-result-item {
+    transform: translateY(0);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-result-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Cards Styling */
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 2px solid #f0f0f0;
+    padding: 1rem;
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Attractions List */
+#attractions-list {
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.list-group-item {
+    border: 1px solid #e0e0e0;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.list-group-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Itinerary Container */
+#itinerary-container {
+    min-height: 500px;
+    background-color: #fafafa;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.itinerary-item {
+    transform-origin: center;
+    transition: all 0.3s ease;
+}
+
+.itinerary-content {
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+}
+
+.itinerary-image {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.itinerary-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.itinerary-details {
+    flex: 1;
+}
+
+.itinerary-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.itinerary-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: flex-end;
+}
+
+/* Animations */
+.itinerary-item.adding {
+    animation: slideIn 0.3s ease;
+}
+
+.itinerary-item.removing {
+    animation: slideOut 0.3s ease;
+}
+
+.itinerary-item.moving {
+    animation: pulse 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Hover effects */
+.itinerary-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.itinerary-item:hover .itinerary-image img {
+    transform: scale(1.05);
+}
+
+/* Empty state */
+#itinerary-container:empty::before {
+    content: 'Drag attractions here to build your itinerary';
+    display: block;
+    text-align: center;
+    color: #6c757d;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Drag over state */
+#itinerary-container.drag-over {
+    background-color: rgba(41, 98, 255, 0.05);
+    border: 2px dashed var(--primary-color);
+}
+
+/* Map Container */
+#map-container {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+    margin-bottom: 0;
+    color: #666;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    #attractions-list {
+        max-height: 300px;
+    }
+    
+    #itinerary-container {
+        min-height: 300px;
+    }
+    
+    #map-container {
+        height: 300px !important;
+    }
+}
+
+/* Drag and Drop Styles */
+.draggable {
+    cursor: move;
+    user-select: none;
+}
+
+.drag-over {
+    border: 2px dashed var(--primary-color);
+    background-color: rgba(41, 98, 255, 0.1);
+}
+
+/* Animation for drag and drop */
+@keyframes dragAnimation {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dragging {
+    animation: dragAnimation 0.3s infinite alternate;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+/* Attraction Card and Image Styles */
+.attraction-card {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.image-rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
+
+.attraction-image {
+    width: 120px;
+    height: 120px;
+    background-color: #f8f9fa;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    margin-bottom: 4px;
+}
+
+.attraction-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rating {
+    color: var(--accent-color);
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.attraction-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.attraction-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.location i {
+    color: var(--primary-color);
+    margin-right: 0.25rem;
+}
+
+.category {
+    text-transform: capitalize;
+    background-color: #e9ecef;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+}
+
+/* Responsive image adjustments */
+@media (max-width: 576px) {
+    .image-rating-container {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .attraction-image {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+/* Loading state for images */
+.attraction-image.loading {
+    animation: shimmer 1.5s infinite linear;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 50%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Error state for failed image loads */
+.attraction-image.error::after {
+    content: "Image Not Available";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-align: center;
+    width: 100%;
+    padding: 0 0.5rem;
+}
+
+/* Add these styles for the itinerary section */
+.itinerary-wrapper {
+    min-height: 400px;
+    background-color: #fafafa;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    position: relative;
+}
+
+.empty-state {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #6c757d;
+}
+
+.empty-state i {
+    color: #dee2e6;
+    margin-bottom: 1rem;
+}
+
+.empty-state h6 {
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+.empty-state p {
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+.itinerary-summary {
+    display: flex;
+    justify-content: space-between;
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.itinerary-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#total-duration {
+    padding: 0.5rem;
+    background-color: #e9ecef;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Style for when items are present */
+.itinerary-wrapper:not(:empty) .empty-state {
+    display: none;
+}
+
+/* Add this to your existing drag-over state */
+.itinerary-wrapper.drag-over {
+    background-color: rgba(41, 98, 255, 0.05);
+    border: 2px dashed var(--primary-color);
+}
+
+/* Enhanced itinerary item styles */
+.itinerary-item {
+    background: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.itinerary-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Weather Widget Styles */
+.weather-info {
+    background: linear-gradient(135deg, #6ab7ff 0%, #4481eb 100%);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
+
+.current-weather {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.current-weather i {
+    font-size: 2rem;
+}
+
+.temperature {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.forecast {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.forecast-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Trip Summary Styles */
+.trip-summary {
+    background-color: #f8f9fa;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.summary-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.summary-item .label {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.summary-item .value {
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+/* Add hover effects */
+.summary-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-info:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+/* Add these styles for the login/register functionality */
+.nav-auth {
+    display: flex;
+    align-items: center;
+}
+
+.nav-auth .btn {
+    transition: all 0.3s ease;
+}
+
+.nav-auth .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding: 1.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 1rem 1.5rem;
+}
+
+#loginForm, #registerForm {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-control {
+    border-radius: var(--border-radius);
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: none;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.modal .btn-primary {
+    padding: 0.75rem 1.5rem;
+}
+
+.modal a {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.modal a:hover {
+    color: var(--secondary-color);
+}
+
+/* Add these styles for the auth buttons */
+.nav-auth {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-auth .btn {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-auth .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.nav-auth .btn i {
+    margin-right: 0.5rem;
+}
+
+/* Modal styles */
+.modal-content {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 1rem 2rem;
+}
+
+/* Form styles */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(41, 98, 255, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Add animation for modal */
+.modal.fade .modal-dialog {
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+}
+
+/* Update Search Section Styles */
+.search-container {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.search-form {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-field {
+    position: relative;
+}
+
+.search-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.search-field label i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.search-field .form-control,
+.search-field .form-select {
+    height: 3.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 0 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.date-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.travelers-select {
+    position: relative;
+}
+
+.travelers-select::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #666;
+}
+
+.plan-trip-btn {
+    width: 100%;
+    height: 3.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.plan-trip-btn i {
+    transition: transform 0.3s ease;
+}
+
+.plan-trip-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .search-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .search-field {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Focus states */
+.search-field .form-control:focus,
+.search-field .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(41, 98, 255, 0.25);
+}
+
+/* Hover effects */
+.search-field .form-control:hover,
+.search-field .form-select:hover {
+    border-color: #ccc;
+}
+
+/* Add more spacing between main sections */
+.row {
+    margin-top: 2rem;
+}
+
+/* Add these styles for the enhanced Attractions section */
+.attractions-card {
+    height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.attractions-card .card-header {
+    padding: 0.75rem 1rem;
+    background: white;
+    border-bottom: 2px solid #e0e0e0;
+    border-radius: 0;
+}
+
+#attractions-list {
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.list-group-item {
+    padding: 1rem;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.attraction-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.image-rating-container {
+    width: 120px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.attraction-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.attraction-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rating {
+    color: var(--accent-color);
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+}
+
+.attraction-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.attraction-details h5 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.attraction-details p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.attraction-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.list-group-item:hover {
+    background-color: rgba(41, 98, 255, 0.05);
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Custom scrollbar for attractions list */
+#attractions-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Remove any bottom margin from the last item */
+.list-group-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Optimize spacing in filters */
+.attractions-filters .btn-group {
+    gap: 0.25rem;
+}
+
+.attractions-filters .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Filters styling */
+.attractions-filters {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.attractions-filters .btn-group {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.attractions-filters .btn {
+    flex: 1;
+    white-space: nowrap;
+    padding: 0.375rem 0.75rem;
+}
+
+/* Update these styles to align the bottom borders */
+.attractions-card {
+    height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    border-right: 3px solid #e0e0e0;
+}
+
+.attractions-card .card-header,
+.itinerary-card .card-header {
+    padding: 0.75rem 1rem;
+    background: white;
+    border-bottom: 2px solid #e0e0e0;
+    border-radius: 0;
+    height: 60px; /* Set fixed height for both headers */
+    display: flex;
+    align-items: center;
+}
+
+/* Add this class to your itinerary card div in HTML */
+.itinerary-card {
+    height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Update the card body styles */
+.attractions-card .card-body,
+.itinerary-card .card-body {
+    padding: 0;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Update card title styles for consistency */
+.card-header .card-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Ensure both sections have the same structure */
+.col-md-4,
+.col-md-8 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Update these styles to ensure perfect alignment */
+.row {
+    display: flex;
+    margin: 0; /* Remove default margin */
+}
+
+.col-md-4, .col-md-8 {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px; /* Add consistent padding */
+}
+
+/* Make both cards exactly the same height */
+.attractions-card,
+.itinerary-card {
+    height: calc(100vh - 250px); /* Adjust height to be exactly the same */
+    margin: 0; /* Remove any margins */
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Make headers exactly the same height */
+.attractions-card .card-header,
+.itinerary-card .card-header {
+    height: 60px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Make both card bodies fill remaining space */
+.attractions-card .card-body,
+.itinerary-card .card-body {
+    flex: 1;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Update list container to fill available space */
+#attractions-list {
+    flex: 1;
+    overflow-y: auto;
+    border-right: 2px solid #e0e0e0;
+}
+
+/* Update itinerary container to fill available space */
+#itinerary-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+/* Remove any bottom margins from last items */
+.list-group-item:last-child,
+.itinerary-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Update these styles to make both sections equal height */
+.row {
+    display: flex;
+    margin: 0;
+    min-height: calc(100vh - 350px); /* Adjust total height */
+}
+
+.col-md-4, .col-md-8 {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+}
+
+/* Make both cards exactly the same height */
+.attractions-card,
+.itinerary-card {
+    flex: 1; /* This will make both cards fill available space */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Make headers exactly the same height */
+.attractions-card .card-header,
+.itinerary-card .card-header {
+    height: 60px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Make both card bodies fill remaining space */
+.attractions-card .card-body,
+.itinerary-card .card-body {
+    flex: 1;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Update list container to fill available space */
+#attractions-list {
+    flex: 1;
+    overflow-y: auto;
+    border-right: 2px solid #e0e0e0;
+}
+
+/* Update itinerary container to fill available space */
+#itinerary-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+/* Remove any bottom margins from last items */
+.list-group-item:last-child,
+.itinerary-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Update Ready to Travel styles */
+.ready-to-travel-card {
+    height: 600px; /* Match height with attractions card */
+    background: white;
+    border: none;
+    padding: 1rem; /* Reduced padding */
+}
+
+.welcome-message {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.display-4 {
+    font-size: 2rem; /* Smaller title */
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.welcome-title {
+    font-size: 1.5rem; /* Smaller subtitle */
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; /* Reduced gap */
+    margin: 1rem 0; /* Reduced margin */
+}
+
+.highlight-item {
+    padding: 1rem; /* Reduced padding */
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.highlight-item i {
+    font-size: 1.5rem; /* Smaller icons */
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.highlight-item p {
+    font-size: 0.9rem; /* Smaller text */
+    margin: 0;
+    color: #666;
+    line-height: 1.4;
+}
+
+.journey-text {
+    font-size: 0.95rem; /* Smaller text */
+    line-height: 1.5;
+    color: #666;
+    margin: 1rem auto;
+    max-width: 600px;
+}
+
+.start-now-btn {
+    margin-top: 1rem;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+}
+
+/* Feature Boxes Styles */
+.features-section {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.feature-box:hover .feature-icon {
+    transform: scale(1.1);
+    background: var(--secondary-color);
+}
+
+.feature-icon i {
+    font-size: 28px;
+    color: white;
+}
+
+.feature-box h3 {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.feature-box p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    text-align: left;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.feature-list li::before {
+    content: '✓';
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.feature-link:hover {
+    color: var(--secondary-color);
+    gap: 0.75rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Update these styles to ensure equal height */
+.row {
+    display: flex;
+    margin: 0;
+}
+
+.col-md-4, .col-md-8 {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+}
+
+/* Make both cards exactly the same height */
+.attractions-card,
+.ready-to-travel-card {
+    height: 600px; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Card headers */
+.attractions-card .card-header,
+.ready-to-travel-card .card-header {
+    height: 60px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Card bodies */
+.attractions-card .card-body,
+.ready-to-travel-card .card-body {
+    flex: 1;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Attractions list */
+#attractions-list {
+    height: 100%;
+    overflow-y: auto;
+    border-right: 2px solid #e0e0e0;
+}
+
+/* Remove any bottom margins */
+.list-group-item:last-child {
+    margin-bottom: 0;
+}
+

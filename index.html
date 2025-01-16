@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bihar Travel Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Bihar Travel Planner</a>
+            <div class="nav-auth">
+                <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#signupModal">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        <!-- Search Section -->
+        <section id="search" class="mb-4">
+            <div class="search-container">
+                <div class="search-form">
+                    <div class="search-row">
+                        <div class="search-field">
+                            <label><i class="fas fa-map-marker-alt"></i> Where are you going?</label>
+                            <input type="text" class="form-control" placeholder="Enter destination">
+                        </div>
+                        <div class="search-field">
+                            <label><i class="fas fa-calendar-alt"></i> When?</label>
+                            <input type="date" class="form-control" placeholder="Select date">
+                        </div>
+                        <div class="search-field">
+                            <label><i class="fas fa-users"></i> With Whom?</label>
+                            <div class="travelers-select">
+                                <select class="form-select">
+                                    <option value="1">1 Adult</option>
+                                    <option value="2">2 Adults</option>
+                                    <option value="3">3 Adults</option>
+                                    <option value="4">4 Adults</option>
+                                    <option value="family">Family</option>
+                                    <option value="group">Group</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary plan-trip-btn">
+                        Plan Your Trip <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Attractions and Ready to Travel Section -->
+        <div class="row">
+            <!-- Attractions Panel -->
+            <div class="col-md-4">
+                <div class="card attractions-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Popular Attractions</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="attractions-list" class="list-group list-group-flush">
+                            <!-- Attractions will be populated here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Itinerary Panel -->
+            <div class="col-md-8">
+                <div class="card ready-to-travel-card">
+                    <div class="card-body text-center">
+                        <h1 class="display-4 mb-4">READY TO TRAVEL?</h1>
+                        <div class="welcome-message">
+                            <h2 class="welcome-title">Hey Habibi, Welcome to Bihar!</h2>
+                            <p class="lead text-muted">
+                                Discover the land of ancient wisdom and vibrant traditions. Bihar is home to:
+                            </p>
+                            <div class="highlights-grid">
+                                <div class="highlight-item">
+                                    <i class="fas fa-university"></i>
+                                    <p>Nalanda University - World's Oldest University (5th Century)</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-om"></i>
+                                    <p>Birthplace of Buddhism and Jainism</p>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-landmark"></i>
+                                    <p>Rich Cultural Heritage spanning over 3000 years</p>
+                                </div>
+                            </div>
+                            <p class="journey-text">
+                                From the enlightenment of Lord Buddha at Bodh Gaya to the ancient seats of learning at Nalanda and Vikramshila, 
+                                every corner of Bihar tells a story of India's golden past. Experience our warm hospitality, 
+                                traditional cuisine, and the spiritual essence that makes Bihar unique.
+                            </p>
+                            <button class="btn btn-success btn-lg start-now-btn" onclick="scrollToSearch()">
+                                <span>Start your journey now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Sections -->
+        <div class="features-section mt-5">
+            <div class="container">
+                <div class="features-grid">
+                    <!-- Explore Top Destinations -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Explore Top Destinations</h3>
+                        <p>Discover Bihar's finest locations</p>
+                        <div class="feature-content">
+                            <ul class="feature-list">
+                                <li>Historical temples</li>
+                                <li>Cultural heritage sites</li>
+                                <li>Natural landmarks</li>
+                                <li>Hidden gems</li>
+                            </ul>
+                        </div>
+                        <a href="#destinations" class="feature-link">
+                            Explore More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Customized Itineraries -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3>Customized Itineraries</h3>
+                        <p>Create your perfect trip plan</p>
+                        <div class="feature-content">
+                            <ul class="feature-list">
+                                <li>Personalized schedules</li>
+                                <li>Flexible planning</li>
+                                <li>Route optimization</li>
+                                <li>Time management</li>
+                            </ul>
+                        </div>
+                        <a href="#planner" class="feature-link">
+                            Start Planning <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Smart Trip Planning -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Smart Trip Planning</h3>
+                        <p>Optimize your travel schedule</p>
+                        <div class="feature-content">
+                            <ul class="feature-list">
+                                <li>Smart recommendations</li>
+                                <li>Travel insights</li>
+                                <li>Local tips</li>
+                                <li>Best time to visit</li>
+                            </ul>
+                        </div>
+                        <a href="#smart-planning" class="feature-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Move Footer to bottom -->
+    <footer class="footer mt-5">
+        <div class="container text-center py-3">
+            <p class="mb-0">&copy; 2024 Bihar Travel Planner. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script src="script.js"></script>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="loginPassword" required>
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">
+                                Create New Account
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">
+                        Forgot Password?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Create Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="signupEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="signupPassword" required>
+                                <button class="btn btn-outline-secondary" type="button" id="toggleSignupPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-text">Password must be at least 8 characters long</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">
+                                I agree to the Terms and Conditions
+                            </label>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Create Account</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <p class="mb-0">Already have an account? 
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">
+                            Login here
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forgotPasswordModalLabel">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="forgotPasswordForm">
+                        <div class="mb-3">
+                            <label for="resetEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="resetEmail" required>
+                            <div class="form-text">We'll send you a link to reset your password.</div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Send Reset Link</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
